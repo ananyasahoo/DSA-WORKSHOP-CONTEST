@@ -1,0 +1,19 @@
+def smallestK(n):
+    if (n>=0 and n<=9):
+        return n
+        
+    digits = list()
+    
+    for i in range(9 ,1 , -1):
+        while(n% i== 0):
+            digits.append(i)
+            n=n//i
+            
+    if (n is not 1):
+        return -1
+        
+    K=0
+    while (len(digits) != 0):
+        K = K*10 + digits[-1]
+        digits.pop()
+    return K
